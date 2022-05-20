@@ -1,0 +1,70 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <cassert>
+
+struct date{
+  int year;
+	int month;
+	int day;
+	int hour;
+	int minute;
+  int second;
+  
+  date(int year=2020, int month=1, int day=1, int hour=0, int minute=0, int second=0) {
+		this->year = year;
+		this->month = month;
+		this->day = day;
+		this->hour = hour;
+		this->minute = minute;
+		this->second = second;
+	}
+
+	void print() {
+		std::cout<<year<<"."<<month<<"."<<day<<" "<<hour<<":"<<minute<<":"<<second;
+	}
+};
+
+enum type {
+increase_damage = 1,
+repeat_attack;
+heal;
+paralyze;
+};
+
+
+struct monster{
+std::string name_monster;
+int hp;
+int attack;
+bool special_attack;
+type type_special;
+date date_of_start;
+
+monster(std::string monster = "",int hp = 0, int attack = 0,bool special attack = 0, type type_special = heal, int date date_of_start = {0, 0, 0, 0, 0, 0}){
+this->monster = monster;
+this->hp = hp;
+this->attack = attack;
+this->special_attack = special_attack;
+this->type_special = type_special;
+this->date_of_start = date_of_start;
+}
+void print(){
+std::cout<< "Monster name: " << monster << endl;
+std::cout<< "Monster hp: " << hp << endl;
+std::cout<< "Monster power: " << attack << endl;
+std::cout<< "Possibility to special attack:" << special_attack << endl;
+std::cout<< "Type of special attack:" << type_special << endl;
+std::cout<< "Date of start" << date_of_start.print << endl;
+
+}
+};
+struct memoryStruct(){
+}
+
+int main(){
+
+
+
+}
