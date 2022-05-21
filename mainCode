@@ -5,12 +5,12 @@
 #include <cassert>
 
 struct date{
-  int year;
-	int month;
-	int day;
-	int hour;
-	int minute;
-  int second;
+int year;
+int month;
+int day;
+int hour;
+int minute;
+int second;
   
   date(int year=2020, int month=1, int day=1, int hour=0, int minute=0, int second=0) {
 		this->year = year;
@@ -34,7 +34,7 @@ paralyze;
 };
 
 
-struct monster{
+struct StructMonster{
 std::string name_monster;
 int hp;
 int attack;
@@ -42,7 +42,7 @@ bool special_attack;
 type type_special;
 date date_of_start;
 
-monster(std::string monster = "",int hp = 0, int attack = 0,bool special attack = 0, type type_special = heal, int date date_of_start = {0, 0, 0, 0, 0, 0}){
+StructMonster(std::string monster = "",int hp = 0, int attack = 0,bool special_attack = 0, type type_special = heal, int date date_of_start = {0, 0, 0, 0, 0, 0}){
 this->monster = monster;
 this->hp = hp;
 this->attack = attack;
@@ -57,10 +57,16 @@ std::cout<< "Monster power: " << attack << endl;
 std::cout<< "Possibility to special attack:" << special_attack << endl;
 std::cout<< "Type of special attack:" << type_special << endl;
 std::cout<< "Date of start" << date_of_start.print << endl;
-
 }
 };
+
 struct memoryStruct(){
+std::vector<StructMonster> monsters;
+
+void add(StructMonster monster){
+monsters.push_back(monster);
+}
+
 }
 
 int main(){
