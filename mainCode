@@ -60,14 +60,88 @@ std::cout<< "Date of start" << date_of_start.print << endl;
 }
 };
 
-struct memoryStruct(){
+struct memoryStruct{
 std::vector<StructMonster> monsters;
 
 void add(StructMonster monster){
 monsters.push_back(monster);
 }
 
+void print() {
+std::cout<<"Total number of moonsters stored: " << monsters.size() <<std::endl;
+for(auto& monster: monsters) {
+monster.print();
+std::cout << std::endl;
 }
+
+
+};
+
+
+struct binaryStruct{
+MemoryStruct in_memory;
+std::string filename;
+
+binaryStruct(std::string filename){
+this->filename = filename;
+}
+
+void add(StructMonster monster) {
+in_memory.add(monster);
+}
+
+void print(){
+in_memory.print();
+}
+
+void save() {
+std::ofstream outfile {filename, std::ios::binary};
+
+   for(auto& task: in_memory.tasks) {
+   write_binary(outfile, task);
+   }
+ outfile.flush();
+ }
+
+bool load(){
+std::ifstream inf {filename, std::ios::binary};
+
+while (true) {
+StructMonster monster;
+	if (read_binary(inf, monster)) {
+	in_memory.add(monster);
+	continue;
+	}
+if (infile.eof()) {
+return true; //reached end of file
+}
+if (infile.fail()) {
+return false; //some error
+}
+return false; // should not reach this
+}}};
+
+struct txtStruct{
+MemoryStruct in_memory;
+std::string filename;
+
+txtStruct(std::string filename){
+this->filename = filename;
+}
+
+void print(){
+in_memory.print();
+}
+
+void add(StructMonster monster){
+in_memory.add(monster);
+}
+
+void save(){
+std::ofstream outf;
+}
+
+};
 
 int main(){
 
